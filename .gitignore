@@ -1,0 +1,17 @@
+node_modules
+.idea
+run
+logs
+
+egg/app/controller/*.js
+egg/app/service/*.js
+egg/app/router.js
+tegg_2.x/app/controller/*.ts
+tegg_2.x/app/controller/*.js
+tegg_2.x/app/module/*.ts
+tegg_2.x/app/module/*.js
+
+tegg_3.x/app/controller/*.ts
+tegg_3.x/app/controller/*.js
+tegg_3.x/app/module/*.ts
+tegg_3.x/app/module/*.js

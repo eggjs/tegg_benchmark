@@ -1,0 +1,6 @@
+{
+  "name": "tegg_benchmark",
+  "dependencies": {
+    "lerna": "6.3.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "egg_benchmark",
+  "egg": {},
+  "scripts": {
+    "generate": "node ./generate_benchmark.js",
+    "prepare": "npm run generate",
+    "dev": "egg-bin dev --port 7001",
+    "start": "eggctl start --port 7001 --daemon --title=egg-server-benchmark --workers=4",
+    "stop": "eggctl stop --title=egg-server-benchmark"
+  },
+  "dependencies": {
+    "@eggjs/tsconfig": "^1.1.0",
+    "egg": "^3.9.1",
+    "egg-scripts": "^2.17.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^5.1.1"
+  }
+}

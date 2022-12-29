@@ -1,0 +1,33 @@
+name: Continuous integration
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 2 * * *'
+jobs:
+  Runner-ubuntu:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ 14, 16, 18 ]
+    steps:
+    - name: Checkout Git Source
+      uses: actions/checkout@master
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Npm
+      run: npm i -g npm@8
+
+    - name: Install Dependencies
+      run: npm i && npx lerna bootstrap
+
+    - name: Continuous integration
+      run: sh wrk.sh

@@ -1,0 +1,12 @@
+{
+  "version": "3.2.1",
+  "npmClientArgs": [
+    "--package-lock=false"
+  ],
+  "packages": [
+    "egg",
+    "tegg_2.x",
+    "tegg_3.x"
+  ],
+  "lerna": "1.6.4"
+}
