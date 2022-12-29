@@ -27,7 +27,7 @@ jobs:
       run: npm i -g npm@8
 
     - name: Install Dependencies
-      run: npm i && npx lerna bootstrap
+      run: npm i && npx lerna bootstrap --no-ci
 
     - name: Continuous integration
       run: sh wrk.sh
