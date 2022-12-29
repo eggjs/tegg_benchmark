@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 npx lerna run start
 
 sleep 30

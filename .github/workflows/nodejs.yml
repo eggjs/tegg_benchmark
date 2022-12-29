@@ -23,8 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Npm
-      run: npm i -g npm@8
+    - name: Install Npm && wrk
+      run: npm i -g npm@8 && sudo apt install -y wrk
 
     - name: Install Dependencies
       run: npm i && npx lerna bootstrap --no-ci
