@@ -35,7 +35,7 @@ ${routerString.join(os.EOL)}
   fs.writeFileSync(path.join(pwd, 'app/router.js'), template);
 }
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 10000; i++) {
   writeFile(i);
 }
 
@@ -65,5 +65,5 @@ generateController(1);
 generateController(10);
 generateController(100);
 generateController(1000);
-// generateController(10000);
-writeRouter([1, 10, 100, 1000]);
+generateController(10000);
+writeRouter([1, 10, 100, 1000, 10000]);

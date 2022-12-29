@@ -15,5 +15,6 @@
   },
   "devDependencies": {
     "egg-bin": "^5.1.1"
-  }
+  },
+  "repository": "git@github.com:eggjs/tegg_benchmark.git"
 }
