@@ -4,7 +4,11 @@
     "--package-lock=false"
   ],
   "packages": [
-    "egg",
+    "egg_1",
+    "egg_10",
+    "egg_100",
+    "egg_1000",
+    "egg_10000",
     "tegg_2.x",
     "tegg_3.x"
   ],

@@ -5,8 +5,8 @@
     "generate": "node ./generate_benchmark.js",
     "tsc": "tsc -p ./tsconfig.json",
     "prepare": "npm run generate && npm run tsc",
-    "dev": "egg-bin dev --port 7002",
-    "start": "eggctl start --port 7002 --daemon --title=tegg2-server-benchmark --workers=4",
+    "dev": "egg-bin dev --port 7006",
+    "start": "eggctl start --port 7006 --daemon --title=tegg2-server-benchmark --workers=4",
     "stop": "eggctl stop --title=tegg2-server-benchmark"
   },
   "dependencies": {

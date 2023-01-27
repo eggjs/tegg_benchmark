@@ -1,11 +1,11 @@
 {
-  "name": "egg_benchmark",
+  "name": "egg_100_benchmark",
   "egg": {},
   "scripts": {
     "generate": "node ./generate_benchmark.js",
     "prepare": "npm run generate",
-    "dev": "egg-bin dev --port 7001",
-    "start": "eggctl start --port 7001 --daemon --title=egg-server-benchmark --workers=4",
+    "dev": "egg-bin dev --port 7003",
+    "start": "eggctl start --port 7003 --daemon --title=egg-server-benchmark --workers=4",
     "stop": "eggctl stop --title=egg-server-benchmark"
   },
   "dependencies": {
