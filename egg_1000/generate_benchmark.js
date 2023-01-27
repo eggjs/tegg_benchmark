@@ -42,8 +42,25 @@ for (let i = 0; i < 1000; i++) {
 
 function generateController(count) {
   const touchString = [];
-  for (let i = 0; i < count; i++) {
-    touchString.push(`    this.ctx.service.eggService_${i}.hello();`);
+
+  const callServiceFunction = [];
+  const callServiceLimit = 100;
+  const callServiceFunctionCount = Math.ceil(count / callServiceLimit);
+  for (let i = 0; i < callServiceFunctionCount; i++) {
+    touchString.push(`    this._callService${i}()`)
+  }
+  let start = 0;
+  let end = callServiceLimit;
+  for (let i = 0; i < callServiceFunctionCount; i++) {
+    const func = [];
+    func.push(`  _callService${i}() {`);
+    for (let j = start; j < Math.min(end, count); j++) {
+      func.push(`    this.ctx.service.eggService_${i}.hello();`);
+    }
+    func.push(`  }`);
+    start += callServiceLimit;
+    end += callServiceLimit;
+    callServiceFunction.push(func.join(os.EOL));
   }
 
   const template =
@@ -56,6 +73,7 @@ ${touchString.join(os.EOL)}
   }
     this.ctx.body = 'hello,egg${count}';
   }
+${callServiceFunction.join(os.EOL)}
 }
 `;
   fs.writeFileSync(path.join(controllerDir, `egg_controller_${count}.js`), template);

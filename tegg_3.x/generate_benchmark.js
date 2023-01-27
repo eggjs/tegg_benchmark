@@ -39,10 +39,26 @@ function generateController(count) {
   }
 
   const touchPropertyString = [];
-  for (let i = 0; i < count; i++) {
-    touchPropertyString.push(`    this.fooService${i}.hello()`)
-  }
 
+  const callServiceFunction = [];
+  const callServiceLimit = 100;
+  const callServiceFunctionCount = Math.ceil(count / callServiceLimit);
+  for (let i = 0; i < callServiceFunctionCount; i++) {
+    touchPropertyString.push(`    this._callService${i}()`)
+  }
+  let start = 0;
+  let end = callServiceLimit;
+  for (let i = 0; i < callServiceFunctionCount; i++) {
+    const func = [];
+    func.push(`  _callService${i}() {`);
+    for (let j = start; j < Math.min(end, count); j++) {
+      func.push(`    this.fooService${j}.hello()`);
+    }
+    func.push(`  }`);
+    start += callServiceLimit;
+    end += callServiceLimit;
+    callServiceFunction.push(func.join(os.EOL));
+  }
 
   const template =
 `import { HTTPController, HTTPMethod, HTTPMethodEnum, Inject, HTTPQuery } from '@eggjs/tegg';
@@ -62,6 +78,7 @@ ${touchPropertyString.join(os.EOL)}
     }
     return 'hello, tegg ${count}';
   }
+${callServiceFunction.join(os.EOL)}
 }
 `
   fs.writeFileSync(path.join(controllerDir, `FooTeggController${count}.ts`), template);
