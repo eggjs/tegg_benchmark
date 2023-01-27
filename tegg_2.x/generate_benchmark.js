@@ -14,7 +14,7 @@ function writeFile(index) {
   accessLevel: AccessLevel.PUBLIC,
 })
 export class FooService${index} {
-  async hello() {
+  hello() {
     //...
   }
 }
