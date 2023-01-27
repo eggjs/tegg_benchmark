@@ -30,4 +30,4 @@ jobs:
       run: npm i && npx lerna bootstrap --no-ci
 
     - name: Continuous integration
-      run: sh wrk.sh
+      run: bash wrk.sh
