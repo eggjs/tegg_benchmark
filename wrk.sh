@@ -18,7 +18,7 @@ do
  done
 done
 
-for port in 7006 7007
+for port in 7006 7007 7008
 do
  for touch in "" "=true"
  do

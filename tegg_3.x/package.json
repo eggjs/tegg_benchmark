@@ -22,5 +22,6 @@
   "devDependencies": {
     "egg-bin": "^5.1.1",
     "typescript": "^4.9.4"
-  }
+  },
+  "repository": "git@github.com:eggjs/tegg_benchmark.git"
 }
