@@ -13,4 +13,6 @@ module.exports = {
     enable: true,
     package: '@eggjs/tegg-config',
   },
+  watcher: false,
+  development: false,
 };
